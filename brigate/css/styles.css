@@ -1,6 +1,15 @@
 /* fonts  */
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Work+Sans:wght@300;400;700;800&display=swap');
 
+::-moz-selection { /* Code for Firefox */
+  color: #ffffff;
+  background: var(--primary-color);
+}
+
+::selection {
+  color: #ffffff;
+  background: var(--primary-color);
+}
 
 html {
     scroll-behavior: smooth;
