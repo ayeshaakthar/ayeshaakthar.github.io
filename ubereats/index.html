@@ -8,32 +8,46 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    <!-- header starts here  -->
-    <header id="header">
-        <div class="container">
-            <div class="header_wrapper">
-                <div class="header_left">
-                    <div>
-                        <button><i class="fa-solid fa-bars"></i></button>
-                    </div>
-                    <div>
-                        <a href="#"><img alt="Uber Eats Home" role="img" src="https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/97c43f8974e6c876.svg" width="146" height="24"></a>
-                    </div>
-                    
-                </div>
-                <div class="header_right">
-                    <a href="#" class="header_nav_left">
-                        <i class="fa-solid fa-user"></i>
-                        <span>Log in</span>
-                    </a>
-                    <a href="#" class="header_nav_right">Sign up</a>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- header ends here  -->
     <!-- hero section starts here  -->
     <section id="hero">
+        <header id="header" class="">
+            <div class="container">
+                <div class="header_wrapper">
+                    <div class="header_nav header_nav_switch">
+                        <div class="header_nav_top ">
+                            <a href="#" class="uber_button_black">Sign up</a>
+                            <a href="#" class="uber_button_white">
+                                <i class="fa-solid fa-user"></i>
+                                <span>Log in</span>
+                            </a>
+                            
+                        </div>
+                        <div class="header_nav_bottom">
+                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, ea!</span>
+                        </div>
+                    </div>
+                    <div class="header_left">
+                        <div class="nav_btn">
+                            <button ><i class="fa-solid fa-bars"></i></button>
+                        </div>
+                        <div>
+                            <a href="#"><img alt="Uber Eats Home" role="img" src="https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/97c43f8974e6c876.svg" width="146" height="24"></a>
+                        </div>
+                        <div class="header_nav_cross header_nav_cross_switch">
+                            <button><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                        
+                    </div>
+                    <div class="header_right">
+                        <a href="#" class="uber_button_white">
+                            <i class="fa-solid fa-user"></i>
+                            <span>Log in</span>
+                        </a>
+                        <a href="#" class="uber_button_black">Sign up</a>
+                    </div>
+                </div>
+            </div>
+        </header>
         <div class="container">
             <div class="hero_wrapper">
                 <div class="hero_title">
@@ -51,7 +65,7 @@
                         <i class="fa-solid fa-clock"></i>
                         <span>Delivery Now</span>
                         <i class="fa-solid fa-angle-down"></i>
-                        <div class="delivery_time_click">
+                        <div class="delivery_time_click delivery_time_toggle">
                             <div class="d_t_click_1">
                                 <i class="fa-solid fa-clock"></i>
                                 <span>Delivery Now</span>
@@ -227,6 +241,45 @@
     </footer>
     
     
+
+    <script>
+
+        // header nav 
+        let navv = document.querySelector('.nav_btn');
+        let navCross = document.querySelector('.header_nav_cross'); 
+
+        navv.addEventListener('click', () => {
+            document.querySelector('.header_nav').classList.toggle('header_nav_switch');
+            document.querySelector('.header_nav_cross').classList.toggle('header_nav_cross_switch');
+
+            
+        })
+        navCross.addEventListener('click', () => {
+            document.querySelector('.header_nav').classList.add('header_nav_switch');
+            document.querySelector('.header_nav_cross').classList.toggle('header_nav_cross_switch');
+        })
+
+        // hero section 
+        let delivery = document.querySelector('.hero_delivery_time');
+        delivery.addEventListener('click', () => {
+            document.querySelector('.delivery_time_click').classList.toggle('delivery_time_toggle');
+        })
+
+        // scroll 
+        let header = document.querySelector('#header');
+        window.addEventListener('scroll', () => {
+
+            if(window.pageYOffset > 250){
+                header.classList.add('header_scroll');
+                header.style.backgroundColor='white';
+            }
+            else if(pageYOffset < 250){
+                header.style.backgroundColor='transparent';
+                header.classList.remove('header_scroll');
+            }
+        })
+
+    </script>
 
     <!-- font awesome ======= -->
     <script src="https://kit.fontawesome.com/17ed1b5974.js" crossorigin="anonymous"></script>

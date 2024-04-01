@@ -29,55 +29,8 @@
 img{
     width: 100%;
 }
-/* reset  */
-html {
-    scroll-behavior: smooth;
-}
 
-body {
-    /* font-family: var(--font); */
-    position: relative;
-}
-
-/* header  */
-#header{
-    padding: 12px 0;
-    background-color: #ffffff;
-    position: sticky;
-    top: 0;
-    z-index: 9;
-}
-
-.header_wrapper{
-    height: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.header_left{
-    width: 190px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.header_left button{
-    background: none;
-    border: none;
-}
-
-.header_left button i{
-    margin-top: 1.5px;
-    font-size: 20px;
-}
-
-.header_right{
-    display: flex;
-    width: 220px;
-    justify-content: space-between;
-}
-
-.header_right a{
+.uber_button_white, .uber_button_black{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,23 +49,146 @@ body {
 
 }
 
-.header_right a:first-child{
+.uber_button_white{
     width: 80px;
     color: #000;
     background-color: #ffffff;
 }
 
-.header_right a:first-child:hover{
+.uber_button_white:hover{
     background-color: #f4f4f4;
 }
 
-.header_right a:last-child:hover{
+.uber_button_black:hover{
     background-color: #000000cb;
 }
 
-.header_nav_left i{
+.uber_button_white i{
     display: inline-block;
     margin-right: 5px;
+}
+
+
+/* reset  */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    /* font-family: var(--font); */
+    position: relative;
+}
+
+/* header  */
+#header{
+    padding: 12px 0;
+    background-color: transparent;
+    width: 100%;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+}
+
+.header_scroll{
+    background-color: #fff; 
+    position: fixed;
+    top: 0;
+    z-index: 9;
+}
+
+.header_wrapper{
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header_left{
+    width: 190px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav_btn button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+.nav_btn button i{
+    margin-top: 1.5px;
+    font-size: 20px;
+}
+
+.header_right{
+    display: flex;
+    width: 220px;
+    justify-content: space-between;
+}
+
+
+
+/* header nav  */
+.header_nav{
+    position: fixed;
+    z-index: 2;
+    background-color: #fff;
+    width: 300px;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 0.6s;
+    -webkit-transition: 0.6s;
+    -moz-transition: 0.6s;
+    -ms-transition: 0.6s;
+    -o-transition: 0.6s;
+}
+
+.header_nav_cross{
+    display: inline-block;
+    position: fixed;
+    z-index: 2;
+    margin-left: 300px;
+}
+
+.header_nav_cross_switch{
+    transform: scaleY(0);
+    -webkit-transform: scaleY(0);
+    -moz-transform: scaleY(0);
+    -ms-transform: scaleY(0);
+    -o-transform: scaleY(0);
+
+}
+
+.header_nav_top{
+    display: flex;
+    flex-direction: column;
+}
+
+.header_nav_switch{
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    transform-origin: left;
+}
+
+.header_nav_cross button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.header_nav_cross button i{
+    font-size: 22px;
 }
 
 
@@ -124,7 +200,8 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 90vh;
+    height: 100vh;;
+    /* margin-top: -74px; */
     
 }
 
@@ -190,25 +267,21 @@ body {
     right: 0px;
     display: flex;
     flex-direction: column;
-    transform-origin: top;
-    transform: scaleY(0);
-    -webkit-transform: scaleY(0);
-    -moz-transform: scaleY(0);
-    -ms-transform: scaleY(0);
-    -o-transform: scaleY(0);
     transition: 0.3s;
     -webkit-transition: 0.3s;
     -moz-transition: 0.3s;
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
+    transform-origin: top;
 }
 
-.hero_delivery_time:hover .delivery_time_click{
-    transform: scaleY(1);
-    -webkit-transform: scaleY(1);
-    -moz-transform: scaleY(1);
-    -ms-transform: scaleY(1);
-    -o-transform: scaleY(1);
+.delivery_time_toggle{
+    transform: scaleY(0);
+    -webkit-transform: scaleY(0);
+    -moz-transform: scaleY(0);
+    -ms-transform: scaleY(0);
+    -o-transform: scaleY(0);
+
 }
 
 .d_t_click_1, .d_t_click_2{
@@ -223,9 +296,9 @@ body {
     margin-right: 12px;
 }
 
-..d_t_click_1{
+/* .d_t_click_1{
     padding: 20px 10px 10px 10px;
-}
+} */
 
 .hero_search{
     background-color: #000;
