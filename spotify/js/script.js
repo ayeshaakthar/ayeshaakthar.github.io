@@ -4,7 +4,7 @@ async function getSongs(folder) {
 
     currfolder = folder;
     //get the html dom of songs folder
-    let a = await fetch(`http://127.0.0.1:5502/spotify/${folder}/`);
+    let a = await fetch(`./${folder}/`);
     //turn the type of html dom into text)
     let response = await a.text();
     let div = document.createElement('div');
@@ -88,7 +88,7 @@ const playMusic = (track, pause = false) => {
 //display the albums whenever its added to songs folder
 async function displayAlbums() {
     // fetch the data of songs folder 
-    let a = await fetch(`http://127.0.0.1:5502/spotify/songs/`);
+    let a = await fetch(`./songs/`);
     //turn the type of html dom into text)
     let response = await a.text();
     let div = document.createElement('div');
@@ -108,7 +108,7 @@ async function displayAlbums() {
         if (e.href.includes('/songs/')) {
             let folder = (e.href.split('/').slice(-1))
             // get the metadaata of the folder from json 
-            let a = await fetch(`http://127.0.0.1:5502/spotify/songs/${folder}/info.json`);
+            let a = await fetch(`./songs/${folder}/info.json`);
             let response2 = await a.json();
             //put album into cardContainer
             cardContainer.innerHTML = cardContainer.innerHTML + `<div data-folder="${folder}" class="card">
