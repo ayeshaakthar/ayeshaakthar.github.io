@@ -74,7 +74,7 @@ let currentSong = new Audio();
 
 // function to play the song 
 const playMusic = (track, pause = false) => {
-    currentSong.src = `/spotify/${currfolder}/` + track;
+    currentSong.src = `/${currfolder}/` + track;
     //if condition to automatically put the first song in playbar after reload
     if (!pause) {
         currentSong.play();
